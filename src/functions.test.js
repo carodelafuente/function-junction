@@ -4,35 +4,66 @@
  * construct available in Javascript.
  */
 
-// ...
+function max (a, b) {
+  if (a > b) {
+    return a
+  } return b
+}
 
 /**
  * Define a function maxOfThree() that takes three
  * numbers as arguments and returns the largest of them.
  */
 
-// ...
+function maxOfThree (a, b, c) {
+  if (a > b) {
+    if (a > c) {
+      return a
+    } else {
+      return c
+    }
+  } else {
+    if (b > c) {
+      return b
+    } else {
+      return c
+    }
+  }
+}
 
 /*
  * Define a function sum() that takes two numbers as
  * arguments and computes the sum of those two numbers.
  */
 
-// ...
+function sum (a, b) {
+  return a + b
+}
 
 /*
  * Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
 
-// ...
+function sumOfArray(num) {
+  var sum = 0
+  for (var i = 0; i < num.length; i++) {
+    sum += num[i]
+  }
+  return sum
+}
 
 /**
  * Write a function isVowel() that takes a character (i.e. a string of length 1)
  * and returns true if it is a vowel, false otherwise.
  */
 
-// ...
+function isVowel (a) {
+  if (a === 'a' || a === 'e' || a === 'i' || a === 'o' || a === 'u' || a === 'A' || a === 'E' || a === 'I' || a === 'O' || a === 'U') {
+    return true
+  }
+  return false
+}
 
  /**
   * Write a function rovarspraket() that will translate
@@ -43,7 +74,19 @@
   * return the string "tothohisos isos fofunon".
   */
 
-// ...
+function rovarspraket (str) {
+  let string = str.toString()
+  let consonants = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'.split('')
+  let place = ''
+  for (let i = 0; i < string.length; i++) {
+    if (consonants.indexOf(string.charAt(i)) >= 0) {
+      place = place + string.charAt(i) + 'o' + string.charAt(i)
+    } else {
+      place = place + string.charAt(i)
+    }
+  }
+  return place
+}
 
 /**
  * Define a function reverse() that computes
@@ -52,7 +95,9 @@
  * string "books".
  */
 
-// ...
+function reverse (string) {
+  return string.split('').reverse().join('')
+}
 
  /**
   * Write a function findLongestWord() that takes an
@@ -61,7 +106,18 @@
   * i.e. findLongestWord("book dogs") should return "book"
   */
 
-// ...
+function findLongestWord (string) {
+  let words = string.split(' ')
+  let longestLength = 0
+  let longestWord
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > longestLength) {
+      longestLength = words[i].length
+      longestWord = words[i]
+    }
+  }
+  return longestWord
+}
 
 /**
  * NOTE: Don't modify anything below this line...
@@ -124,7 +180,7 @@ test('reverse()', (t) => {
 
 test('findLongestWord()', (t) => {
   t.is(findLongestWord('book dogs'), 'book')
-  t.is(findLongestWord('everything'), 'life the universe and everything')
+  t.is(findLongestWord('life the universe and everything'), 'everything')
 })
 
 /* eslint-enable */
